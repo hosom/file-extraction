@@ -59,7 +59,7 @@ export {
 		["application/java-archive"] = "jar",
 		["application/x-java-applet"] = "jar",
 		["application/x-shockwave-flash"] = "swf",
-		["application/pkcs7-signature"] = "p12",
+		["application/pkcs7-signature"] = "p7",
 		["application/x-pem"] = "pem",
 		["application/x-java-jnlp-file"] = "jnlp",
 		["application/vnd.tcpdump.pcap"] = "pcap",
