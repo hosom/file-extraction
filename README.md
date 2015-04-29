@@ -54,3 +54,13 @@ Loads the following plugins:
 extract-java.bro
 extract-pe.bro
 extract-ms-office.bro
+
+store-files-by-md5.bro
+-------------
+
+Uses file_state_remove to rename extracted files based on the md5 checksum whenever it is available.
+
+store-files-by-sha1.bro
+-------------
+
+Uses file_state_remove to rename extracted files based on the sha1 checksum whenever it is available.
