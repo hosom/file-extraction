@@ -3,6 +3,8 @@
 module FileExtraction;
 
 export {
+	## Path to store files
+	const path: string = "" &redef;
 	## Hook to include files in extraction
 	global extract: hook(f: fa_file, meta: fa_metadata);
 	## Hook to exclude files from extraction
@@ -20,7 +22,7 @@ event file_sniff(f: fa_file, meta: fa_metadata)
 		else
 			fext = split_string(meta$mime_type, /\//)[1];
 		
-		local fname = fmt("%s-%s.%s", f$source, f$id, fext);
+		local fname = fmt("%s%s-%s.%s", path, f$source, f$id, fext);
 		Files::add_analyzer(f, Files::ANALYZER_EXTRACT, 
 			[$extract_filename=fname]);
 		}
