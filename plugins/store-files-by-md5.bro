@@ -17,5 +17,6 @@ event file_state_remove(f: fa_file)
 	local cmd = fmt("mv %s %s", orig, dest);
 	when ( local result = Exec::run([$cmd=cmd]) )
 		{
-		}		
+		}
+	f$info$extracted = dest;
 	}
