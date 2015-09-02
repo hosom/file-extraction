@@ -21,9 +21,9 @@ event file_sniff(f: fa_file, meta: fa_metadata)
 			local fext = mime_to_ext[meta$mime_type];
 		else
 			fext = split_string(meta$mime_type, /\//)[1];
-		
+
 		local fname = fmt("%s%s-%s.%s", path, f$source, f$id, fext);
-		Files::add_analyzer(f, Files::ANALYZER_EXTRACT, 
+		Files::add_analyzer(f, Files::ANALYZER_EXTRACT,
 			[$extract_filename=fname]);
 		}
 	}
