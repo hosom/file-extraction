@@ -19,4 +19,5 @@ event file_state_remove(f: fa_file)
 		{
 		}
 	f$info$extracted = dest;
+
 	}
