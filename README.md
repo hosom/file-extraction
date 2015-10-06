@@ -70,9 +70,10 @@ extract-common-exploit-types.bro
 -------------
 
 Loads the following plugins:
-extract-java.bro
-extract-pe.bro
-extract-ms-office.bro
+- extract-java.bro
+- extract-pe.bro
+- extract-ms-office.bro
+- extract-pdf.bro
 
 store-files-by-md5.bro
 -------------
