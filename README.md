@@ -61,13 +61,19 @@ extract-ms-office.bro
 
 Attaches the extract files analyzer to every ms office file detected.
 
+extract-pe.bro
+-------------
+
+Attaches the extract files analyzer to every PDF file detected.
+
 extract-common-exploit-types.bro
 -------------
 
 Loads the following plugins:
-extract-java.bro
-extract-pe.bro
-extract-ms-office.bro
+- extract-java.bro
+- extract-pe.bro
+- extract-ms-office.bro
+- extract-pdf.bro
 
 store-files-by-md5.bro
 -------------
@@ -78,3 +84,8 @@ store-files-by-sha1.bro
 -------------
 
 Uses file_state_remove to rename extracted files based on the sha1 checksum whenever it is available.
+
+store-files-by-sha256.bro
+-------------
+
+Uses file_state_remove to rename extracted files based on the sha256 checksum whenever it is available.
