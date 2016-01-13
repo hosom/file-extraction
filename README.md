@@ -8,25 +8,19 @@ Additionally, this script will generate file extensions for commonly encountered
 Installation
 ------------
 
-::
-
 		cd <prefix>/share/bro/site/
 		git clone git://github.com/hosom/bro-file-extraction file-extraction
 		echo "@load file-extraction" >> local.bro
 
 With the above installation, the module will not extract any files. In addition to the changes above, code must be written to hook FileExtraction::extract. For examples of this, look at the scripts in the plugins directory.
 
-In many cases, the desired functionality is for files commonly containing malware or exploits to be extracted. To do that, perform the actions below.
+In many cases, the desired functionality is for files commonly containing malware or exploits to be extracted. To do that, uncomment the following line from plugins/__load__.bro.
 
-::
+		@load file-extraction/plugins/extract-common-exploit-types
 
-		echo "@load file-extraction/plugins/extract-common-exploit-types
+Additionally, to store files by sha1 hash, uncomment the following:
 
-Additionally, to store files by sha1 hash, use the following:
-
-::
-
-		echo "@load file-extraction/plugins/store-files-by-sha1
+		@load file-extraction/plugins/store-files-by-sha1
 
 Configuration
 -------------
@@ -61,7 +55,7 @@ extract-ms-office.bro
 
 Attaches the extract files analyzer to every ms office file detected.
 
-extract-pe.bro
+extract-pdf.bro
 -------------
 
 Attaches the extract files analyzer to every PDF file detected.
