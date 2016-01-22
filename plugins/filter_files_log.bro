@@ -14,16 +14,12 @@ event bro_init()
 	Log::remove_default_filter(Files::LOG);
 	Log::add_filter(Files::LOG, [$name = "files-log-filter-whitelist",
 		$pred(rec: Files::Info) = {
-			local result = T;
+			local result = F;
 			if ( rec?$analyzers ) {
 				for (wl_entry in whitelist) {
 					if ( wl_entry in rec$analyzers ) {
-						result = T;
-						break; 
-					} else {
-						result = F;
+						return T;
 					}
-	
 				}
 			}
 			
