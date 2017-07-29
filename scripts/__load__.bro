@@ -1,2 +1,2 @@
-@load ./config
 @load ./main
+@load ./config
