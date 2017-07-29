@@ -1,0 +1,6 @@
+[package]
+description = Extract files from network traffic with Bro.
+tags = files, file extraction, file analysis
+version = 1.0.0
+script_dir = scripts
+config_files = scripts/config.bro
