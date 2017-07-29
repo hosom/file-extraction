@@ -4,3 +4,5 @@ tags = files, file extraction, file analysis
 version = 1.0.0
 script_dir = scripts
 config_files = scripts/config.bro
+depends =
+    bro >=2.5.0
