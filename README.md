@@ -1,67 +1,65 @@
-Bro Module for File Extraction
-==============================
+# Bro Module for File Extraction
 
-This is a Bro script module for Bro (current master release only) that provides convenient extraction of files.
+This is a Bro package that provides convenient extraction of files.
 
-Additionally, this script will generate file extensions for commonly encountered file types.
+As a secondary goal, this script performs additional commonly requested file extraction and logging tasks, such as naming extracted files after their calculated file checksum or naming the file with its common file extension.
 
-Installation
-------------
+## Installing with bro-pkg (preferred)
 
-		cd <prefix>/share/bro/site/
-		git clone git://github.com/hosom/bro-file-extraction file-extraction
-		echo "@load file-extraction" >> local.bro
+This package can be installed through the [bro package manager](http://bro-package-manager.readthedocs.io) by utilizing the following commands:
 
-With the above installation, the module will not extract any files. In addition to the changes above, code must be written to hook FileExtraction::extract. For examples of this, look at the scripts in the plugins directory.
+```sh
+bro-pkg install bro/hosom/file-extraction
 
-In many cases, the desired functionality is for files commonly containing malware or exploits to be extracted. To do that, uncomment the following line from plugins/__load__.bro.
+# you must separately load the package for it to actually do anything
+bro-pkg load bro/hosom/file-extraction
+```
 
-		@load file-extraction/plugins/extract-common-exploit-types
+## Installing manually
 
-Additionally, to store files by sha1 hash, uncomment the following:
+While not preferred, this package can also be installed manually. To do this, follow the tasks below:
 
-		@load file-extraction/plugins/store-files-by-sha1
+```
+cd <prefix>/share/bro/site
 
-Configuration
--------------
+git clone git://github.com/hosom/file-extraction file-extraction
 
-This set of scripts provides you with the ability to tune which files you are extracting and from where.
+echo "@load file-extraction" >> local.bro
+```
 
-Output
--------------
+## Configuration
 
-Other than the extracted files, this module will generate no output.
+The package installs with the **extract-common-exploit-types.bro** policy, however, additional functionality may be desired. 
 
-Plugins
-===============================
+Configuration must **always be done within the config.bro** file. Failure to isolate configuration to **config.bro** will result in your configuration being overwritten.
 
-extract-all-files.bro
--------------
+### Advanced Configuration
+
+For advanced configuration of file extraction, the best option available is to hook the FileExtraction::extract hook. For examples of this, look at the scripts in the plugins directory.
+
+## Plugins
+
+### extract-all-files.bro
 
 Attaches the extract files analyzer to every file that has a mime_type detected.
 
-extract-java.bro
--------------
+### extract-java.bro
 
 Attaches the extract files analyzer to every JNLP and Java Archive file detected.
 
-extract-pe.bro
--------------
+### extract-pe.bro
 
 Attaches the extract files analyzer to every PE file detected.
 
-extract-ms-office.bro
--------------
+### extract-ms-office.bro
 
 Attaches the extract files analyzer to every ms office file detected.
 
-extract-pdf.bro
--------------
+### extract-pdf.bro
 
 Attaches the extract files analyzer to every PDF file detected.
 
-extract-common-exploit-types.bro
--------------
+### extract-common-exploit-types.bro
 
 Loads the following plugins:
 - extract-java.bro
@@ -69,17 +67,14 @@ Loads the following plugins:
 - extract-ms-office.bro
 - extract-pdf.bro
 
-store-files-by-md5.bro
--------------
+### store-files-by-md5.bro
 
 Uses file_state_remove to rename extracted files based on the md5 checksum whenever it is available.
 
-store-files-by-sha1.bro
--------------
+### store-files-by-sha1.bro
 
 Uses file_state_remove to rename extracted files based on the sha1 checksum whenever it is available.
 
-store-files-by-sha256.bro
--------------
+### store-files-by-sha256.bro
 
 Uses file_state_remove to rename extracted files based on the sha256 checksum whenever it is available.
