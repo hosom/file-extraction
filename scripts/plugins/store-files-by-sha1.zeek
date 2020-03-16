@@ -1,4 +1,4 @@
-@load ../__load__.bro
+@load ../__load__
 @load policy/frameworks/files/hash-all-files
 
 event file_state_remove(f: fa_file)

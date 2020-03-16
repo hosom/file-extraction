@@ -1,4 +1,4 @@
-@load ../__load__.bro
+@load ../__load__
 
 module FileExtraction;
 

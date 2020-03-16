@@ -1,4 +1,4 @@
-@load ../__load__.bro
+@load ../__load__
 @load policy/frameworks/files/hash-all-files
 
 event file_sniff(f: fa_file, meta: fa_metadata)
