@@ -5,4 +5,4 @@ version = 1.0.0
 script_dir = scripts
 config_files = scripts/config.zeek
 depends =
-    bro >=2.5.0
+    zeek >=3.0.0
