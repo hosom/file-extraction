@@ -1,18 +1,18 @@
-# Bro Module for File Extraction
+#  Module for File Extraction
 
-This is a Bro package that provides convenient extraction of files.
+This is a Zeek package that provides convenient extraction of files.
 
 As a secondary goal, this script performs additional commonly requested file extraction and logging tasks, such as naming extracted files after their calculated file checksum or naming the file with its common file extension.
 
-## Installing with bro-pkg (preferred)
+## Installing with zkg (preferred)
 
-This package can be installed through the [bro package manager](http://bro-package-manager.readthedocs.io) by utilizing the following commands:
+This package can be installed through the [zeek package manager](https://docs.zeek.org/projects/package-manager/en/stable/quickstart.html) by utilizing the following commands:
 
 ```sh
-bro-pkg install bro/hosom/file-extraction
+zkg install zeek/hosom/file-extraction
 
 # you must separately load the package for it to actually do anything
-bro-pkg load bro/hosom/file-extraction
+zkg load zeek/hosom/file-extraction
 ```
 
 ## Installing manually
@@ -20,18 +20,18 @@ bro-pkg load bro/hosom/file-extraction
 While not preferred, this package can also be installed manually. To do this, follow the tasks below:
 
 ```
-cd <prefix>/share/bro/site
+cd <prefix>/share/zeek/site
 
 git clone git://github.com/hosom/file-extraction file-extraction
 
-echo "@load file-extraction" >> local.bro
+echo "@load file-extraction" >> local.zeek
 ```
 
 ## Configuration
 
-The package installs with the **extract-common-exploit-types.bro** policy, however, additional functionality may be desired. 
+The package installs with the **extract-common-exploit-types.zeek** policy, however, additional functionality may be desired. 
 
-Configuration must **always be done within the config.bro** file. Failure to isolate configuration to **config.bro** will result in your configuration being overwritten.
+Configuration must **always be done within the config.zeek** file. Failure to isolate configuration to **config.zeek** will result in your configuration being overwritten.
 
 ### Advanced Configuration
 
@@ -39,42 +39,42 @@ For advanced configuration of file extraction, the best option available is to h
 
 ## Plugins
 
-### extract-all-files.bro
+### extract-all-files.zeek
 
 Attaches the extract files analyzer to every file that has a mime_type detected.
 
-### extract-java.bro
+### extract-java.zeek
 
 Attaches the extract files analyzer to every JNLP and Java Archive file detected.
 
-### extract-pe.bro
+### extract-pe.zeek
 
 Attaches the extract files analyzer to every PE file detected.
 
-### extract-ms-office.bro
+### extract-ms-office.zeek
 
 Attaches the extract files analyzer to every ms office file detected.
 
-### extract-pdf.bro
+### extract-pdf.zeek
 
 Attaches the extract files analyzer to every PDF file detected.
 
-### extract-common-exploit-types.bro
+### extract-common-exploit-types.zeek
 
 Loads the following plugins:
-- extract-java.bro
-- extract-pe.bro
-- extract-ms-office.bro
-- extract-pdf.bro
+- extract-java.zeek
+- extract-pe.zeek
+- extract-ms-office.zeek
+- extract-pdf.zeek
 
-### store-files-by-md5.bro
+### store-files-by-md5.zeek
 
 Uses file_state_remove to rename extracted files based on the md5 checksum whenever it is available.
 
-### store-files-by-sha1.bro
+### store-files-by-sha1.zeek
 
 Uses file_state_remove to rename extracted files based on the sha1 checksum whenever it is available.
 
-### store-files-by-sha256.bro
+### store-files-by-sha256.zeek
 
 Uses file_state_remove to rename extracted files based on the sha256 checksum whenever it is available.
