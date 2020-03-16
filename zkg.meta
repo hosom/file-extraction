@@ -1,8 +1,8 @@
 [package]
-description = Extract files from network traffic with Bro.
+description = Extract files from network traffic with Zeek.
 tags = files, file extraction, file analysis
 version = 1.0.0
 script_dir = scripts
-config_files = scripts/config.bro
+config_files = scripts/config.zeek
 depends =
     bro >=2.5.0
