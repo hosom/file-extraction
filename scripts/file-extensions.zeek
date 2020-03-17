@@ -63,7 +63,6 @@ export {
 		["application/x-pem"] = "pem",
 		["application/x-java-jnlp-file"] = "jnlp",
 		["application/vnd.tcpdump.pcap"] = "pcap",
-		["text/rtf"] = "rtf",
 		["text/x-shellscript"] = "sh",
 		["text/x-perl"] = "pl",
 		["text/x-ruby"] = "rb",
